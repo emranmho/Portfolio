@@ -59,7 +59,7 @@ export const Navigation = () => {
     const handleScroll = () => {
       if (location.pathname !== '/') return;
       
-      const sections = ['home', 'about', 'projects', 'blog', 'contact'];
+      const sections = ['home', 'about', 'experience', 'projects', 'blog', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -81,6 +81,7 @@ export const Navigation = () => {
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
+    { id: 'experience', label: 'Experience' },
     { id: 'projects', label: 'Projects' },
     { id: 'blog', label: 'Blog' },
     { id: 'contact', label: 'Contact' },
