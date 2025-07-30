@@ -1,73 +1,117 @@
-# Welcome to your Lovable project
+# Modern Portfolio Website
 
-## Project info
+A sleek and interactive portfolio website built with React, TypeScript, and Tailwind CSS, featuring smooth animations, dark/light theme, and responsive design.
 
-**URL**: https://lovable.dev/projects/bd233178-6756-48c2-aab4-9c8e9e4d6b83
+## 🌟 Features
 
-## How can I edit this code?
+- **Modern Design**: Clean and professional UI with cosmic-themed gradients
+- **Responsive Layout**: Fully responsive design that works on all devices
+- **Dark/Light Theme**: Dynamic theme switching with system preference detection
+- **Smooth Animations**: Page transitions and scroll effects
+- **Interactive Sections**:
+  - Hero section with 3D background
+  - About section with skills
+  - Experience timeline
+  - Projects showcase
+  - Blog section
+  - Contact form
+- **Three.js Integration**: Beautiful 3D animated background
+- **Mouse Effects**: Interactive ripple effects on mouse movement
+- **TypeScript**: Type-safe code throughout the application
+- **Tailwind CSS**: Modern, utility-first CSS framework
+- **React Router**: Smooth navigation between pages
 
-There are several ways of editing your application.
+## 🚀 Getting Started
 
-**Use Lovable**
+### Prerequisites
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/bd233178-6756-48c2-aab4-9c8e9e4d6b83) and start prompting.
+- Node.js (v18 or higher)
+- npm or yarn or bun
 
-Changes made via Lovable will be committed automatically to this repo.
+### Installation
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+1. Clone the repository:
+```bash
+git clone <your-repo-url>
+cd portfolio
 ```
 
-**Edit a file directly in GitHub**
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+# or
+bun install
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+3. Start the development server:
+```bash
+npm run dev
+# or
+yarn dev
+# or
+bun dev
+```
 
-**Use GitHub Codespaces**
+4. Open [http://localhost:5173](http://localhost:5173) in your browser
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🛠️ Built With
 
-## What technologies are used for this project?
+- [React](https://reactjs.org/) - UI Library
+- [TypeScript](https://www.typescriptlang.org/) - Type Safety
+- [Vite](https://vitejs.dev/) - Build Tool
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [shadcn/ui](https://ui.shadcn.com/) - UI Components
+- [Three.js](https://threejs.org/) - 3D Graphics
+- [React Router](https://reactrouter.com/) - Routing
+- [Lucide Icons](https://lucide.dev/) - Icons
 
-This project is built with:
+## 📁 Project Structure
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```
+/
+├── public/           # Static files
+├── src/
+│   ├── assets/      # Images and other assets
+│   ├── components/  # React components
+│   ├── data/       # Static data files
+│   ├── hooks/      # Custom React hooks
+│   ├── lib/        # Utility functions
+│   ├── pages/      # Page components
+│   └── types/      # TypeScript types
+└── ...config files
+```
 
-## How can I deploy this project?
+## 🎨 Customization
 
-Simply open [Lovable](https://lovable.dev/projects/bd233178-6756-48c2-aab4-9c8e9e4d6b83) and click on Share -> Publish.
+1. **Theme**: Edit `tailwind.config.ts` to modify colors and other theme values
+2. **Content**: Update content in the `src/data/` directory
+3. **Styling**: Modify component styles in their respective files using Tailwind classes
+4. **Components**: Add or modify components in the `src/components/` directory
 
-## Can I connect a custom domain to my Lovable project?
+## 📱 Responsive Design
 
-Yes, you can!
+The website is fully responsive with breakpoints for:
+- Mobile devices
+- Tablets
+- Desktop
+- Large screens
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🌓 Theme Switching
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- Automatically detects system theme preference
+- Allows manual toggle between light and dark themes
+- Persists theme choice in localStorage
+
+## 🔑 Performance Optimization
+
+- Code splitting with React.lazy()
+- Image optimization
+- Efficient animations
+- Lazy loading of components
+- Optimized asset loading
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
