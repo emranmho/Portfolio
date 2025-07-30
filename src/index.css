@@ -1,0 +1,258 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Cosmic Portfolio Design System */
+
+@layer base {
+  :root {
+    /* Cosmic Color Palette */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 263 70% 50%;
+    --primary-foreground: 0 0% 98%;
+    
+    --secondary: 240 10% 15%;
+    --secondary-foreground: 0 0% 98%;
+    
+    --muted: 240 10% 15%;
+    --muted-foreground: 240 5% 65%;
+    
+    --accent: 198 70% 50%;
+    --accent-foreground: 0 0% 98%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 240 10% 15%;
+    --input: 240 10% 15%;
+    --ring: 263 70% 50%;
+    
+    --radius: 0.75rem;
+    
+    /* Cosmic Theme Colors */
+    --cosmic-purple: 263 70% 50%;
+    --cosmic-blue: 198 70% 50%;
+    --cosmic-pink: 320 70% 60%;
+    --cosmic-gold: 45 90% 60%;
+    --deep-space: 240 10% 3.9%;
+    --nebula-glow: 263 70% 30%;
+    
+    /* Gradients */
+    --gradient-cosmic: linear-gradient(135deg, hsl(263, 70%, 50%), hsl(198, 70%, 50%));
+    --gradient-nebula: linear-gradient(180deg, hsl(240, 10%, 3.9%), hsl(263, 70%, 10%));
+    --gradient-starfield: radial-gradient(circle, hsl(263, 70%, 50%, 0.3), transparent);
+    
+    /* Shadows & Glows */
+    --shadow-cosmic: 0 0 20px hsl(263, 70%, 50%, 0.3);
+    --shadow-elegant: 0 10px 40px -10px hsl(240, 10%, 3.9%, 0.8);
+    --glow-primary: 0 0 30px hsl(263, 70%, 50%, 0.5);
+    --glow-accent: 0 0 30px hsl(198, 70%, 50%, 0.5);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    
+    --primary: 263 70% 50%;
+    --primary-foreground: 0 0% 98%;
+    
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    
+    --accent: 198 70% 50%;
+    --accent-foreground: 0 0% 98%;
+    
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 263 70% 50%;
+    
+    --cosmic-purple: 263 70% 50%;
+    --cosmic-blue: 198 70% 50%;
+    --cosmic-pink: 320 70% 60%;
+    --cosmic-gold: 45 90% 60%;
+    --deep-space: 0 0% 100%;
+    --nebula-glow: 263 70% 95%;
+    
+    --gradient-cosmic: linear-gradient(135deg, hsl(263, 70%, 50%), hsl(198, 70%, 50%));
+    --gradient-nebula: linear-gradient(180deg, hsl(0, 0%, 100%), hsl(263, 70%, 98%));
+    --shadow-cosmic: 0 0 20px hsl(263, 70%, 50%, 0.2);
+    --glow-primary: 0 0 20px hsl(263, 70%, 50%, 0.3);
+    --glow-accent: 0 0 20px hsl(198, 70%, 50%, 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Cosmic Button Variants */
+  .btn-cosmic {
+    @apply relative inline-flex items-center justify-center px-8 py-3 text-sm font-medium transition-all duration-300;
+    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground rounded-lg;
+    @apply hover:scale-105 transform;
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+  
+  .btn-cosmic:hover {
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.5);
+  }
+  
+  .btn-ghost-cosmic {
+    @apply relative inline-flex items-center justify-center px-6 py-2 text-sm font-medium;
+    @apply border border-primary/30 text-foreground rounded-lg backdrop-blur-sm;
+    @apply hover:border-primary hover:bg-primary/10;
+    @apply transition-all duration-300 transform hover:scale-105;
+  }
+  
+  .btn-ghost-cosmic:hover {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+
+  /* Card Variants */
+  .card-cosmic {
+    @apply relative p-6 rounded-xl border border-border/50 bg-card/50 backdrop-blur-sm;
+    @apply hover:border-primary/30 transform hover:scale-[1.02];
+    @apply transition-all duration-300;
+  }
+  
+  .card-cosmic:hover {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+  
+  .card-glow {
+    @apply relative overflow-hidden;
+  }
+  
+  .card-glow:hover::before {
+    content: '';
+    @apply absolute inset-0 rounded-xl bg-gradient-to-r from-primary/10 to-accent/10 opacity-100;
+  }
+
+  /* Text Gradients */
+  .text-cosmic-gradient {
+    @apply bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent;
+    background-size: 200% 100%;
+    animation: gradient-shift 3s ease-in-out infinite;
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  }
+
+  /* Ripple Effect */
+  .ripple-container {
+    @apply relative overflow-hidden;
+  }
+  
+  .ripple {
+    @apply absolute rounded-full bg-primary/30 pointer-events-none;
+    transform: scale(0);
+    animation: ripple-animation 0.6s linear;
+  }
+
+  /* Parallax Layers */
+  .parallax-slow {
+    transform: translateY(var(--scroll-y, 0));
+  }
+  
+  .parallax-medium {
+    transform: translateY(calc(var(--scroll-y, 0) * 0.5));
+  }
+  
+  .parallax-fast {
+    transform: translateY(calc(var(--scroll-y, 0) * 0.3));
+  }
+
+  /* Section Fade In */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Three.js Canvas */
+  .three-canvas {
+    @apply fixed inset-0 pointer-events-none;
+    z-index: -1;
+  }
+}
+
+@layer utilities {
+  /* Custom Animations */
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  @keyframes ripple-animation {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.3); }
+    50% { box-shadow: 0 0 40px hsl(var(--primary) / 0.6); }
+  }
+  
+  @keyframes star-twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  .animate-star-twinkle {
+    animation: star-twinkle 2s ease-in-out infinite;
+  }
+}
