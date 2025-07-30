@@ -22,19 +22,8 @@ const Index = () => {
     document.documentElement.classList.add('dark');
   }, []);
 
-  useEffect(() => {
-    // Handle scroll to specific section when navigating back from detail pages
-    if (location.state?.scrollTo) {
-      const sectionId = location.state.scrollTo;
-      const element = document.getElementById(sectionId);
-      if (element) {
-        // Small delay to ensure the page has rendered
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-      }
-    }
-  }, [location.state]);
+
+
 
   return (
     <div className="relative min-h-screen">
