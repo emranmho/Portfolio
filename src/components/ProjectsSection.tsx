@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { ExternalLink, Github, Star } from 'lucide-react';
+import { ExternalLink, Github, Star, Database, Server, Code2 } from 'lucide-react';
 import { Button } from './ui/button';
 
 export const ProjectsSection = () => {
@@ -25,56 +25,50 @@ export const ProjectsSection = () => {
 
   const projects = [
     {
-      title: 'Cosmic Dashboard',
-      description: 'Interactive 3D data visualization platform with real-time analytics and WebGL-powered charts.',
-      tech: ['React', 'Three.js', 'TypeScript', 'WebGL'],
+      title: 'Microservices Architecture Platform',
+      description: 'Scalable microservices platform with service discovery, load balancing, and distributed tracing using Docker and Kubernetes.',
+      tech: ['Node.js', 'Docker', 'Kubernetes', 'Redis', 'PostgreSQL'],
       github: 'https://github.com',
-      demo: 'https://demo.com',
       featured: true,
       stars: 127
     },
     {
-      title: 'Neural Network Playground',
-      description: 'Educational platform for understanding machine learning concepts with interactive visualizations.',
-      tech: ['Python', 'TensorFlow', 'React', 'D3.js'],
+      title: 'Real-time Analytics API',
+      description: 'High-performance analytics API with real-time data processing, caching strategies, and horizontal scaling capabilities.',
+      tech: ['Python', 'FastAPI', 'Apache Kafka', 'Elasticsearch', 'MongoDB'],
       github: 'https://github.com',
-      demo: 'https://demo.com',
       featured: false,
       stars: 89
     },
     {
-      title: 'Space Explorer API',
-      description: 'RESTful API for astronomical data with real-time updates from NASA and ESA sources.',
-      tech: ['Node.js', 'Express', 'MongoDB', 'Redis'],
+      title: 'Authentication & Authorization Service',
+      description: 'Secure authentication system with JWT tokens, OAuth2 integration, role-based access control, and audit logging.',
+      tech: ['Node.js', 'Express', 'PostgreSQL', 'Redis', 'JWT'],
       github: 'https://github.com',
-      demo: 'https://api-docs.com',
       featured: true,
       stars: 156
     },
     {
-      title: 'Quantum Chat',
-      description: 'Real-time messaging app with end-to-end encryption and quantum-inspired security protocols.',
-      tech: ['React Native', 'Socket.io', 'PostgreSQL', 'Node.js'],
+      title: 'Data Pipeline Orchestration',
+      description: 'ETL pipeline system with Apache Airflow for data processing, transformation, and loading across multiple data sources.',
+      tech: ['Python', 'Apache Airflow', 'Apache Spark', 'PostgreSQL', 'AWS S3'],
       github: 'https://github.com',
-      demo: 'https://demo.com',
       featured: false,
       stars: 203
     },
     {
-      title: 'Portfolio Generator',
-      description: 'Automated portfolio creation tool with customizable themes and integrated deployment.',
-      tech: ['Next.js', 'Tailwind CSS', 'Vercel', 'GitHub API'],
+      title: 'RESTful API Gateway',
+      description: 'API gateway with rate limiting, request/response transformation, authentication middleware, and comprehensive monitoring.',
+      tech: ['Node.js', 'Express', 'Redis', 'Prometheus', 'Grafana'],
       github: 'https://github.com',
-      demo: 'https://demo.com',
       featured: false,
       stars: 78
     },
     {
-      title: 'AR Solar System',
-      description: 'Augmented reality educational app for exploring the solar system in 3D space.',
-      tech: ['React', 'AR.js', 'Three.js', 'WebXR'],
+      title: 'Event-Driven Architecture System',
+      description: 'Event-driven microservices with message queues, event sourcing, CQRS pattern, and distributed event processing.',
+      tech: ['Node.js', 'Apache Kafka', 'EventStore', 'MongoDB', 'Docker'],
       github: 'https://github.com',
-      demo: 'https://demo.com',
       featured: true,
       stars: 145
     }
@@ -91,7 +85,7 @@ export const ProjectsSection = () => {
             <span className="text-cosmic-gradient">Featured Projects</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto fade-in-up">
-            A collection of projects that showcase my passion for innovative technology
+            A collection of backend systems and APIs that demonstrate scalable architecture and robust engineering
           </p>
         </div>
 
@@ -104,15 +98,15 @@ export const ProjectsSection = () => {
                 index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
               }`}
             >
-              {/* Project Image/Demo */}
+              {/* Project Icon/Visual */}
               <div className={`relative ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
                 <div className="aspect-video rounded-xl bg-gradient-cosmic p-1 hover:shadow-[var(--glow-primary)] transition-all duration-300 group">
                   <div className="w-full h-full rounded-lg bg-background/80 backdrop-blur-sm flex items-center justify-center">
                     <div className="text-center">
                       <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <ExternalLink className="h-8 w-8 text-primary" />
+                        <Server className="h-8 w-8 text-primary" />
                       </div>
-                      <p className="text-sm text-muted-foreground">Interactive Demo</p>
+                      <p className="text-sm text-muted-foreground">Backend System</p>
                     </div>
                   </div>
                 </div>
@@ -142,13 +136,7 @@ export const ProjectsSection = () => {
                   <Button variant="outline" size="sm" className="btn-ghost-cosmic" asChild>
                     <a href={project.github} target="_blank" rel="noopener noreferrer">
                       <Github className="h-4 w-4 mr-2" />
-                      Code
-                    </a>
-                  </Button>
-                  <Button size="sm" className="btn-cosmic" asChild>
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      Live Demo
+                      View Code
                     </a>
                   </Button>
                   <div className="flex items-center gap-1 text-sm text-muted-foreground">
@@ -164,7 +152,7 @@ export const ProjectsSection = () => {
         {/* Other Projects Grid */}
         <div className="text-center mb-8">
           <h3 className="text-2xl font-bold mb-4 fade-in-up">
-            Other Notable Projects
+            Other Backend Projects
           </h3>
         </div>
 
@@ -177,7 +165,7 @@ export const ProjectsSection = () => {
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="p-2 rounded-lg bg-primary/20 group-hover:bg-primary/30 transition-colors">
-                  <ExternalLink className="h-5 w-5 text-primary" />
+                  <Code2 className="h-5 w-5 text-primary" />
                 </div>
                 <div className="flex items-center gap-1 text-sm text-muted-foreground">
                   <Star className="h-3 w-3" />
@@ -216,14 +204,6 @@ export const ProjectsSection = () => {
                   className="p-2 rounded hover:bg-primary/10 transition-colors"
                 >
                   <Github className="h-4 w-4" />
-                </a>
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 rounded hover:bg-primary/10 transition-colors"
-                >
-                  <ExternalLink className="h-4 w-4" />
                 </a>
               </div>
             </div>
