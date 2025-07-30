@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Moon, Sun, Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export const Navigation = () => {
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     // Check system preference and localStorage
@@ -25,15 +28,37 @@ export const Navigation = () => {
   };
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Wait for navigation to complete before scrolling
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    setIsMenuOpen(false);
+  };
+
+  const handleNavClick = (itemId: string) => {
+    if (itemId === 'blog') {
+      navigate('/blog');
       setIsMenuOpen(false);
+    } else {
+      scrollToSection(itemId);
     }
   };
 
   useEffect(() => {
     const handleScroll = () => {
+      if (location.pathname !== '/') return;
+      
       const sections = ['home', 'about', 'projects', 'blog', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
@@ -51,7 +76,7 @@ export const Navigation = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
 
   const navItems = [
     { id: 'home', label: 'Home' },
@@ -67,7 +92,13 @@ export const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <button
-            onClick={() => scrollToSection('home')}
+            onClick={() => {
+              if (location.pathname !== '/') {
+                navigate('/');
+              } else {
+                scrollToSection('home');
+              }
+            }}
             className="text-xl font-bold text-cosmic-gradient hover:scale-105 transition-transform"
           >
             Portfolio
@@ -78,17 +109,19 @@ export const Navigation = () => {
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleNavClick(item.id)}
                 className={`relative text-sm font-medium transition-all duration-300 hover:text-primary ${
-                  activeSection === item.id
+                  (location.pathname === '/blog' && item.id === 'blog') || 
+                  (location.pathname === '/' && activeSection === item.id)
                     ? 'text-primary'
                     : 'text-muted-foreground'
                 }`}
               >
                 {item.label}
-                {activeSection === item.id && (
+                {(location.pathname === '/blog' && item.id === 'blog') || 
+                 (location.pathname === '/' && activeSection === item.id) ? (
                   <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-cosmic rounded-full" />
-                )}
+                ) : null}
               </button>
             ))}
           </div>
@@ -145,9 +178,10 @@ export const Navigation = () => {
               {navItems.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  onClick={() => handleNavClick(item.id)}
                   className={`text-left text-sm font-medium transition-colors ${
-                    activeSection === item.id
+                    (location.pathname === '/blog' && item.id === 'blog') || 
+                    (location.pathname === '/' && activeSection === item.id)
                       ? 'text-primary'
                       : 'text-muted-foreground hover:text-primary'
                   }`}
