@@ -23,12 +23,12 @@ export const HeroSection = () => {
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
             <span className="text-cosmic-gradient">Hello, I'm</span>
             <br />
-            <span className="text-glow">Alex Johnson</span>
+            <span className="text-glow">Mohammodullah Emran</span>
           </h1>
           
           <div className="mb-8">
             <p className="text-xl md:text-2xl text-muted-foreground mb-4 animate-float">
-              Full-Stack Developer & Cosmic Explorer
+              Software Engineer
             </p>
             <div className="flex flex-wrap justify-center gap-2 text-sm text-accent">
               <span className="px-3 py-1 rounded-full bg-primary/20 border border-primary/30">React</span>

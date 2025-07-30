@@ -101,7 +101,7 @@ export const Navigation = () => {
             }}
             className="text-xl font-bold text-cosmic-gradient hover:scale-105 transition-transform"
           >
-            Portfolio
+            Mhoemran
           </button>
 
           {/* Desktop Navigation */}
